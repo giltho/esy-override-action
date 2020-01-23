@@ -10,8 +10,11 @@ async function run() {
     console.log('  Sandbox : ', sandbox);
     console.log('  Version : ', version);
     await override.version(version, sandbox);
+    console.log('Running esy install...');
     await esy.install(sandbox);
+    console.log('Running esy build...');
     await esy.build(sandbox);
+    console.log('All Done !!!!');
   } catch (error) {
     core.setFailed(error.message);
   }
