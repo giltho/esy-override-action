@@ -16,10 +16,11 @@ export async function version(
     } else {
       sandbox_path = path.join(cwd(), sandbox + '.json');
     }
-
+    console.log('Path to json project file : ', sandbox_path);
     let raw_data = await fs.readFile(sandbox_path, 'utf8');
     let project: EsyProject = JSON.parse(raw_data);
     project.devDependencies.ocaml = version;
     await fs.writeFile(sandbox_path, JSON.stringify(project));
+    console.log('OCaml version has been overriden to ', version);
   }
 }

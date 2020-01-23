@@ -14,6 +14,16 @@ export type EsyProject = {
   };
 };
 
+async function esy(
+  sandbox: string | null,
+  command: string | undefined | null
+): Promise<void> {
+  let cmd = `esy${sandbox ? ' @' + sandbox : ''}${
+    command ? ' ' + command : ''
+  }`;
+  await exec(cmd);
+}
+
 export async function status(): Promise<EsyStatus> {
   let {stdout, stderr} = await exec('esy status');
   if (stderr) {
@@ -23,6 +33,9 @@ export async function status(): Promise<EsyStatus> {
 }
 
 export async function build(sandbox: string | null): Promise<void> {
-  let sandbox_param = sandbox ? '@' + sandbox : '';
-  await exec(`esy ${sandbox_param} build`);
+  await esy(sandbox, 'build');
+}
+
+export async function install(sandbox: string | null): Promise<void> {
+  await esy(sandbox, 'install');
 }
