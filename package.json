@@ -1,0 +1,27 @@
+{
+  "name": "esy-action",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Github action that installs and runs esy given a version of OCaml and a sandbox",
+  "main": "lib/execute-esy.js",
+  "scripts": {
+    "build": "tsc",
+    "format": "prettier --write **/*.ts",
+    "format-check": "prettier --check **/*.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/giltho/esy-action.git"
+  },
+  "keywords": [
+    "action",
+    "esy"
+  ],
+  "author": "Sacha-Elie 'Giltho' Ayoun",
+  "devDependencies": {
+    "typescript": "^3.7.5"
+  },
+  "dependencies": {
+    "@actions/core": "^1.2.1"
+  }
+}
