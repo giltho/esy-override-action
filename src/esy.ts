@@ -1,5 +1,6 @@
 import { promisify } from 'util';
 import { exec as exec_callback } from 'child_process';
+import { error } from '@actions/core';
 
 let exec = promisify(exec_callback);
 
@@ -14,7 +15,10 @@ export type EsyProject = {
 }
 
 export async function status() : Promise<EsyStatus> {
-  let { stdout } = await exec('esy status');
+  let { stdout, stderr } = await exec('esy status');
+  if (stderr) {
+    error(stderr);
+  }
   return JSON.parse(stdout);
 }
 

@@ -6,6 +6,8 @@ async function run () {
   try {
     let sandbox = core.getInput("sandbox");
     let version = core.getInput("ocaml-version");
+    core.warning("Sandbox : " + sandbox);
+    core.warning("Version : " + version);
     await override.version(version, sandbox);
     await esy.build(sandbox);
   } catch (error) {
