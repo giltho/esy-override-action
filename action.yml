@@ -1,6 +1,9 @@
 name: 'Executes esy'
 description: 'Installs and runs esy given a version of OCaml and a sandbox'
 author: 'Giltho'
+branding:
+  icon: 'package'
+  color: 'orange'
 inputs:
   sandbox:
     description: 'A sandbox in which to execute the project, set to null to use default sandbox'
