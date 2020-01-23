@@ -34,7 +34,7 @@
     "@actions/core": "^1.2.1"
   },
   "husky": {
-    "pre-commit": "npm run build",
+    "pre-commit": "npm run format && npm run build",
     "post-commit": "npm prune --production && git add node_modules/* && git commit -m \"Husky commit correct node modules\""
   }
 }
