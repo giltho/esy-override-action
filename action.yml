@@ -1,0 +1,13 @@
+name: 'Executes esy'
+description: 'Installs and runs esy given a version of OCaml and a sandbox'
+author: 'Giltho'
+inputs:
+  sandbox:
+    description: 'A sandbox in which to execute the project, set to null to use default sandbox'
+    default: null
+  ocaml-version:
+    description: 'An esy-accepted version of OCaml (will override in the sandbox), set to null to keep version of current sandbox.'
+    default: null
+runs:
+  using: 'node12'
+  main: 'lib/entrypoint.js'
