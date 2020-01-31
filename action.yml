@@ -1,12 +1,12 @@
-name: 'Executes esy'
-description: 'Installs and runs esy given a version of OCaml and a sandbox'
+name: 'Esy Override'
+description: 'verrides OCaml Dev Version in Esy sandbox'
 author: 'Giltho'
 branding:
   icon: 'package'
   color: 'orange'
 inputs:
   sandbox:
-    description: 'A sandbox in which to execute the project, set to null to use default sandbox'
+    description: 'A sandbox to override, set to null to use default sandbox'
     default: null
   ocaml-version:
     description: 'An esy-accepted version of OCaml (will override in the sandbox), set to null to keep version of current sandbox.'

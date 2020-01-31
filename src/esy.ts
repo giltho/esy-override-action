@@ -31,11 +31,3 @@ export async function status(): Promise<EsyStatus> {
   }
   return JSON.parse(stdout);
 }
-
-export async function build(sandbox: string | null): Promise<void> {
-  await esy(sandbox, 'build');
-}
-
-export async function install(sandbox: string | null): Promise<void> {
-  await esy(sandbox, 'install');
-}
