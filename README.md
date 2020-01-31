@@ -1,8 +1,7 @@
-# esy-action
+# esy-action-override
 
-An action for building esy projects.
-
-In order to make it work, you need to first set up node and install esy by hand (for now).
+An action for overriding esy projects.
+For now, it is only able to override the ocaml-version. It can be used for testing on different ocaml-verions.
 
 Here's a simple workflow example :
 
@@ -25,12 +24,16 @@ jobs:
       uses: actions/setup-node@v1.1.0
     - name: Install esy
       run: npm install -g esy
-    - name: Execute esy
-      uses: giltho/esy-action@v0.0.2
+    - name: Override esy version
+      uses: giltho/esy-override-action@v0.0.3
+    - name: Esy install
+      run: esy install
+    - name: Esy build
+      run: esy build
       with:
         ocaml-version: ${{ matrix.ocaml-version }}
     - name: Testing
-      run:  esy x TestFlow.exe
+      run:  esy x Test.exe
 ```
 
 If one also wants to execute on different sandboxes, (`esy @sandbox`), one can also specify the sandbox name.
@@ -58,10 +61,14 @@ jobs:
     - name: Install esy
       run: npm install -g esy
     - name: Execute esy
-      uses: giltho/esy-action@v0.0.2
+      uses: giltho/esy-override-action@v0.0.3
       with:
         ocaml-version: ${{ matrix.ocaml-version }}
         sandbox: ${{ matrix.sandbox }}
+    - name: Esy install
+      run: esy install
+    - name: Esy build
+      run: esy build
     - name: Testing
-      run:  esy x TestFlow.exe
+      run:  esy x Test.exe
 ```
