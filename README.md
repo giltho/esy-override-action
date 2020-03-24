@@ -1,3 +1,7 @@
+# Experiment
+
+This is an experiment, it should not be used in production
+
 # esy-action-override
 
 An action for overriding esy projects.
